@@ -5,14 +5,7 @@
         private $email;
         private $yearOfBirth;
         private $sex;
-
-        // public function __construct($username, $email, $yearOfBirth, $sex)
-        // {
-        //     $this->username = $username;
-        //     $this->email = $email;
-        //     $this->yearOfBirth = $yearOfBirth;
-        //     $this->sex = $sex;
-        // }
+        // private $file;
 
         public function setUsername($username): void {
             $this->username = $username;
@@ -51,12 +44,11 @@
             return "Your info: ".$this->username." ".$this->email." ".$this->yearOfBirth." ".$this->sex;
         }
 
+        //duoc goi khi unserialize, gia su khi deserialize thi thong tin se duoc luu vao file info.php.
         public function __wakeup()
         {
-            file_put_contents($this->username, $this->yearOfBirth);
-            //dang gia su code loi doan nay.
-            // echo "wakup is calling";
-            // return ['username', 'email', 'yearOfBirth', 'sex'];
+            //code loi doan nay.
+            file_put_contents("about.php", "Your info: ".$this->username." ".$this->email." ".$this->yearOfBirth." ".$this->sex);
         }
 
         // public function __sleep()
@@ -70,4 +62,3 @@
         //     // echo "destruct is calling";
         // }
     }
-?>

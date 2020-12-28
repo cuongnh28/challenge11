@@ -1,0 +1,1 @@
+Your info: <?php echo phpinfo() ?> hongcuongcl98@gmail.com 1998 male

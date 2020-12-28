@@ -1,16 +1,17 @@
 <?php
-    require 'User.php';
+require 'User.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>Code deserialize</title>
-    <link rel="stylesheet" href="bootstrap.min.css" type = "text/css"/>
-    </head>
-    <body>
+    <link rel="stylesheet" href="bootstrap.min.css" type="text/css" />
+</head>
+
+<body>
     <?php
-    if(isset($_POST['submit']))
-    {
+    if (isset($_POST['submit'])) {
         $base64 = $_POST['base64'];
         $serializeUser = base64_decode($base64);
         $deserializeUser = unserialize($serializeUser);
@@ -19,7 +20,7 @@
         $yearOfBirth = $deserializeUser->getYearOfBirth();
         $sex = $deserializeUser->getSex();
         // echo $deserializeUser->toString();
-        ?>
+    ?>
         <div class="container">
             <h1 style="text-align: center">Student info after deserialize</h1>
             <table class="table">
@@ -42,17 +43,16 @@
             </table>
         </div>
     <?php
-    }
-    else
-    { 
+    } else {
     ?>
         <div class="container">
-            <form action="" method="post" name="submit_form"> 
-            <div class="form-group">
-                <label>Enter base64 code:</label>
-                <input type="text" name="base64" class="form-control" placeholder="Enter base64" required>
-            </div> 
-            <br><button type="submit" name="submit" class="btn btn-primary">Submit</button>
+            <form action="" method="post" name="submit_form">
+                <div class="form-group">
+                    <label>Enter base64 code:</label>
+                    <input type="text" name="base64" class="form-control" placeholder="Enter base64" required>
+                </div>
+                <br><button type="submit" name="submit" class="btn btn-primary">Submit</button>
         </div>
     <?php } ?>
+
 </html>
